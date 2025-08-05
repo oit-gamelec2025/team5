@@ -24,7 +24,13 @@ public class Player1 : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        int hand2 = Player2.hand2;
+        if (collision.gameObject.CompareTag("Random_hand"))
+        {
+            hand1 = Random.Range(1,4);
+            Destroy(collision.gameObject);
+
+        }
+            int hand2 = Player2.hand2;
         if (collision.gameObject.CompareTag("Player2"))
         {
             
