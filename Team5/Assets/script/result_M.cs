@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class result_Manage : MonoBehaviour
+
+public class result_M : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -14,7 +15,7 @@ public class result_Manage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
+        
     }
 
     public void onClickStartButton()

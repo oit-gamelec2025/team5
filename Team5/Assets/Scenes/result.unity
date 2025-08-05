@@ -997,7 +997,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2084245685}
-        m_TargetAssemblyTypeName: result_Manage, Assembly-CSharp
+        m_TargetAssemblyTypeName: result_M, Assembly-CSharp
         m_MethodName: onClickStartButton
         m_Mode: 1
         m_Arguments:
@@ -1017,7 +1017,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2084245680}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81f59e6b0be44b348a9bba2f308f5845, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c38da3ef2abed94991ba582606f31cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807

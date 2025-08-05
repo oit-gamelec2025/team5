@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class respone_M : MonoBehaviour
 {
+    [SerializeField] private Vector3 spawnPosition1 = new Vector3(0, 1, 0);
+    [SerializeField] private Vector3 spawnPosition2 = new Vector3(2, 1, 0);
+    [SerializeField] private Vector3 spawnPosition3 = new Vector3(0, 1, 2);
+
+
     [SerializeField]
     [Tooltip("Random_hand")]
     private GameObject RH1Prefab;
@@ -11,6 +16,10 @@ public class respone_M : MonoBehaviour
     [SerializeField]
     [Tooltip("Random_hand")]
     private GameObject RH2Prefab;
+
+    [SerializeField]
+    [Tooltip("Random_hand")]
+    private GameObject RH3Prefab;
 
     // Start is called before the first frame update
     void Start()
@@ -22,29 +31,32 @@ public class respone_M : MonoBehaviour
     void Update()
     {
         GameObject playerObj = GameObject.Find(RH1Prefab.name);
-        // playerObjが存在していない場合
         if (playerObj == null)
         {
-            // playerPrefabから新しくGameObjectを作成
-            GameObject newPlayerObj = Instantiate(RH1Prefab);
-            // 新しく作成したGameObjectの名前を再設定(今回は"PlayerSphere"となる)
+            GameObject newPlayerObj = Instantiate(RH1Prefab,spawnPosition1, Quaternion.identity);
             newPlayerObj.name = RH1Prefab.name;
-            // ※ここで名前を再設定しない場合、自動で決まる名前は、"PlayerSphere(Clone)"となるため
-            //   13行目で探している"PlayerSphere"が永遠に見つからないことになり、playerが無限に生産される
-            //   どういうことかは、22行目をコメントアウトしてゲームを実行すればわかります。
         }
 
         GameObject playerObj2 = GameObject.Find(RH2Prefab.name);
-        // playerObjが存在していない場合
         if (playerObj2 == null)
         {
-            // playerPrefabから新しくGameObjectを作成
-            GameObject newPlayerObj2 = Instantiate(RH2Prefab);
-            // 新しく作成したGameObjectの名前を再設定(今回は"PlayerSphere"となる)
+            GameObject newPlayerObj2 = Instantiate(RH2Prefab, spawnPosition2, Quaternion.identity);
             newPlayerObj2.name = RH2Prefab.name;
-            // ※ここで名前を再設定しない場合、自動で決まる名前は、"PlayerSphere(Clone)"となるため
-            //   13行目で探している"PlayerSphere"が永遠に見つからないことになり、playerが無限に生産される
-            //   どういうことかは、22行目をコメントアウトしてゲームを実行すればわかります。
+        }
+
+        GameObject playerObj3 = GameObject.Find(RH3Prefab.name);
+        if (playerObj3 == null)
+        {
+            GameObject newPlayerObj3 = Instantiate(RH3Prefab, spawnPosition3, Quaternion.identity);
+            newPlayerObj3.name = RH3Prefab.name;
         }
     }
+
+    void respone1()
+    {
+
+    }
+
+
+
 }
