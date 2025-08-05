@@ -4,10 +4,21 @@ using UnityEngine;
 
 public class Player1 : MonoBehaviour
 {
+
+    // UI画面のゲームオブジェクトを格納する変数
+    // インスペクターウィンドウからゲームオブジェクトを設定する
+    [SerializeField] GameObject logsView;
+
+    // UI画面の表示状態を格納する変数
+    public static bool isLogsView = true;
+
+
+
     public static int jan_S = 0;
     public static int hand1 = 0;
     float speed = 3.0f;
     public Vector3 posp1;
+    public bool key = true;
 
     public static int getscore1()
     {
@@ -42,6 +53,10 @@ public class Player1 : MonoBehaviour
             {
                 Debug.Log("負け");
                 gameObject.transform.position = new Vector3(posp1.x, posp1.y, posp1.z);
+                isLogsView = !isLogsView;
+                logsView.SetActive(isLogsView);
+                key = false;
+                Invoke("EnableInput", 2f);
 
             }
             else if (hand2 == 1 && hand1 == 3)
@@ -62,11 +77,19 @@ public class Player1 : MonoBehaviour
             {
                 Debug.Log("負け");
                 gameObject.transform.position = new Vector3(posp1.x, posp1.y, posp1.z);
+                isLogsView = !isLogsView;
+                logsView.SetActive(isLogsView);
+                key = false; 
+                Invoke("EnableInput", 2f);
             }
             else if (hand2 == 3 && hand1 == 1)
             {
                 Debug.Log("負け");
                 gameObject.transform.position = new Vector3(posp1.x, posp1.y, posp1.z);
+                isLogsView = !isLogsView;
+                logsView.SetActive(isLogsView);
+                key = false;
+                Invoke("EnableInput", 2f);
             }
             else if (hand2 == 3 && hand1 == 2)
             {
@@ -86,28 +109,31 @@ public class Player1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Wキー（前方移動）
-        if (Input.GetKey(KeyCode.W))
+        if (key == true)
         {
-            transform.position += speed * transform.forward * Time.deltaTime;
-        }
+            // Wキー（前方移動）
+            if (Input.GetKey(KeyCode.W))
+            {
+                transform.position += speed * transform.forward * Time.deltaTime;
+            }
 
-        // Sキー（後方移動）
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.position -= speed * transform.forward * Time.deltaTime;
-        }
+            // Sキー（後方移動）
+            if (Input.GetKey(KeyCode.S))
+            {
+                transform.position -= speed * transform.forward * Time.deltaTime;
+            }
 
-        // Dキー（右移動）
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.position += speed * transform.right * Time.deltaTime;
-        }
+            // Dキー（右移動）
+            if (Input.GetKey(KeyCode.D))
+            {
+                transform.position += speed * transform.right * Time.deltaTime;
+            }
 
-        // Aキー（左移動）
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.position -= speed * transform.right * Time.deltaTime;
+            // Aキー（左移動）
+            if (Input.GetKey(KeyCode.A))
+            {
+                transform.position -= speed * transform.right * Time.deltaTime;
+            }
         }
 
 
@@ -129,5 +155,35 @@ public class Player1 : MonoBehaviour
 
 
 
+    }
+
+
+    // Settings Buttonが押されたときの処理
+    public void G_Button()
+    {
+        hand1 = 1;
+        isLogsView = !isLogsView;
+        logsView.SetActive(isLogsView);
+       
+    }
+
+    public void T_Button()
+    {
+        hand1 = 2;
+        isLogsView = !isLogsView;
+        logsView.SetActive(isLogsView);
+        
+    }
+
+    public void P_Button()
+    {
+        hand1 = 3;
+        isLogsView = !isLogsView;
+        logsView.SetActive(isLogsView);
+
+    }
+    void EnableInput()
+    {
+        key = true;
     }
 }
