@@ -39,6 +39,13 @@ public class Player2 : MonoBehaviour
             Destroy(collision.gameObject);
         }
 
+        if (collision.gameObject.CompareTag("Item1"))
+        {
+            Destroy(collision.gameObject);
+            speed = 10.0f;
+            Invoke("Statas", 10);
+        }
+
         if (collision.gameObject.CompareTag("Player1"))
         {
    
@@ -171,6 +178,12 @@ public class Player2 : MonoBehaviour
         isLogsView = !isLogsView;
         logsView.SetActive(isLogsView);
     }
+
+    public void Statas() 
+    {
+        speed = 3.0f;
+    }
+
     void EnableInput()
     {
         key = true;

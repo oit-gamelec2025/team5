@@ -7,6 +7,7 @@ public class respone_M : MonoBehaviour
     [SerializeField] private Vector3 spawnPosition1 = new Vector3(0, 1, 0);
     [SerializeField] private Vector3 spawnPosition2 = new Vector3(2, 1, 0);
     [SerializeField] private Vector3 spawnPosition3 = new Vector3(0, 1, 2);
+    [SerializeField] private Vector3 spawnPosition4 = new Vector3(0, 1, 2);
 
 
     [SerializeField]
@@ -20,6 +21,10 @@ public class respone_M : MonoBehaviour
     [SerializeField]
     [Tooltip("Random_hand")]
     private GameObject RH3Prefab;
+
+    [SerializeField]
+    [Tooltip("Random_hand")]
+    private GameObject Item1Prefab;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +54,13 @@ public class respone_M : MonoBehaviour
         {
             GameObject newPlayerObj3 = Instantiate(RH3Prefab, spawnPosition3, Quaternion.identity);
             newPlayerObj3.name = RH3Prefab.name;
+        }
+
+        GameObject Item1 = GameObject.Find(Item1Prefab.name);
+        if (Item1 == null)
+        {
+            GameObject newItem1 = Instantiate(Item1Prefab, spawnPosition4, Quaternion.identity);
+            newItem1.name = Item1Prefab.name;
         }
     }
 
