@@ -4,6 +4,21 @@ using UnityEngine;
 
 public class Player1 : MonoBehaviour
 {
+    [SerializeField] private Transform player; // プレイヤーのTransform
+    [SerializeField] private Transform followergu; // 追従させたいオブジェクト
+    [SerializeField] private Vector3 offset = new Vector3(0, 3, 0); // プレイヤーからの相対位置
+    [SerializeField] private Transform followerpa;
+    [SerializeField] private Transform followertyoki;
+
+    [SerializeField]
+    [Tooltip("pa-")]
+    private GameObject pa;
+    [SerializeField]
+    [Tooltip("gu-")]
+    private GameObject gu;
+    [SerializeField]
+    [Tooltip("tyoki")]
+    private GameObject tyoki;
 
     // UI画面のゲームオブジェクトを格納する変数
     // インスペクターウィンドウからゲームオブジェクトを設定する
@@ -109,6 +124,30 @@ public class Player1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        followergu.position = player.position + offset;
+        followerpa.position = player.position + offset;
+        followertyoki.position = player.position + offset;
+
+        if (hand1 == 1)
+        {
+            pa.SetActive(false);
+            gu.SetActive(true);
+            tyoki.SetActive(false);
+        }
+        else if (hand1 == 2)
+        {
+            pa.SetActive(false);
+            gu.SetActive(false);
+            tyoki.SetActive(true);
+
+        }
+        else if (hand1 == 3)
+        {
+            pa.SetActive(true);
+            gu.SetActive(false);
+            tyoki.SetActive(false);
+        }
+
         if (key == true)
         {
             // Wキー（前方移動）

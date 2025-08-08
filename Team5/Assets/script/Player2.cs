@@ -4,6 +4,30 @@ using UnityEngine;
 
 public class Player2 : MonoBehaviour
 {
+    [SerializeField] private Transform player; // プレイヤーのTransform
+    [SerializeField] private Transform followergu; // 追従させたいオブジェクト
+    [SerializeField] private Vector3 offset = new Vector3(0, 3, 0); // プレイヤーからの相対位置
+    [SerializeField] private Transform followerpa;
+    [SerializeField] private Transform followertyoki;
+
+    public Vector3 paPosition;
+    public Vector3 guPosition;
+    public Vector3 tyok1Position;
+    public Vector3 player2Position;
+    [SerializeField]
+    [Tooltip("Player2")]
+    private GameObject player2;
+
+    [SerializeField]
+    [Tooltip("pa-")]
+    private GameObject pa;
+    [SerializeField]
+    [Tooltip("gu-")]
+    private GameObject gu;
+    [SerializeField]
+    [Tooltip("tyoki")]
+    private GameObject tyoki;
+
 
 
     // UI画面のゲームオブジェクトを格納する変数
@@ -31,7 +55,7 @@ public class Player2 : MonoBehaviour
         return jan_S;
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)                                                                                                                                                                                                    
     {
         if (collision.gameObject.CompareTag("Random_hand"))
         {
@@ -112,7 +136,37 @@ public class Player2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        player2Position = player2.transform.position;
+
+        paPosition = player2Position;
+        guPosition = player2Position;
+        tyok1Position = player2Position;
+
+        followergu.position = player.position + offset;
+        followerpa.position = player.position + offset;
+        followertyoki.position = player.position + offset;
+        if (hand2 == 1)
+        {
+            pa.SetActive(false);
+            gu.SetActive(true);
+            tyoki.SetActive(false);
+        }
+        else if (hand2 == 2)
+        {
+            pa.SetActive(false);
+            gu.SetActive(false);
+            tyoki.SetActive(true);
+
+        }
+        else if (hand2 == 3)
+        {
+            pa.SetActive(true);
+            gu.SetActive(false);
+            tyoki.SetActive(false);
+        }
+
+
+
         if (Input.GetKey(KeyCode.T))
         {
             hand2 = 1;
