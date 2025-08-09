@@ -8,6 +8,8 @@ TagManager:
   - Player2
   - Random_hand
   - Item1
+  - item2
+  - item3
   layers:
   - Default
   - TransparentFX

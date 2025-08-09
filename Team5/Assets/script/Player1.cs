@@ -31,9 +31,10 @@ public class Player1 : MonoBehaviour
 
     public static int jan_S = 0;
     public static int hand1 = 0;
-    float speed = 3.0f;
+    float speed = 6.0f;
     public Vector3 posp1;
     public bool key = true;
+    public int up = 0;
 
     public static int getscore1()
     {
@@ -56,7 +57,14 @@ public class Player1 : MonoBehaviour
             Destroy(collision.gameObject);
 
         }
-            int hand2 = Player2.hand2;
+
+        if(collision.gameObject.CompareTag("item2"))
+        {
+            Destroy(collision.gameObject);
+            up = 1;
+
+        }
+        int hand2 = Player2.hand2;
         if (collision.gameObject.CompareTag("Player2"))
         {
             
@@ -77,12 +85,27 @@ public class Player1 : MonoBehaviour
             else if (hand2 == 1 && hand1 == 3)
             {
                 Debug.Log("Ÿ‚¿");
-                jan_S = jan_S + 1;
+                if (up == 1)
+                {
+                    jan_S = jan_S + 2;
+                    up = 0;
+                }else
+                {
+                    jan_S = jan_S + 1;
+                }
             }
             else if (hand2 == 2 && hand1 == 1)
             {
                 Debug.Log("Ÿ‚¿");
-                jan_S = jan_S + 1;
+                if (up == 1)
+                {
+                    jan_S = jan_S + 2;
+                    up = 0;
+                }
+                else
+                {
+                    jan_S = jan_S + 1;
+                }
             }
             else if (hand2 == 2 && hand1 == 2)
             {
@@ -109,7 +132,15 @@ public class Player1 : MonoBehaviour
             else if (hand2 == 3 && hand1 == 2)
             {
                 Debug.Log("Ÿ‚¿");
-                jan_S = jan_S + 1;
+                if (up == 1)
+                {
+                    jan_S = jan_S + 2;
+                    up = 0;
+                }
+                else
+                {
+                    jan_S = jan_S + 1;
+                }
             }
             else if (hand2 == 3 && hand1 == 3)
             {

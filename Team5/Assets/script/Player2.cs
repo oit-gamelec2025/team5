@@ -43,6 +43,7 @@ public class Player2 : MonoBehaviour
     float speed = 3.0f;
     public Vector3 posp2;
     public bool key = true;
+    public int up = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -69,6 +70,11 @@ public class Player2 : MonoBehaviour
             speed = 10.0f;
             Invoke("Statas", 10);
         }
+        if (collision.gameObject.CompareTag("item3"))
+        {
+            Destroy(collision.gameObject);
+            up = 1;
+        }
 
         if (collision.gameObject.CompareTag("Player1"))
         {
@@ -81,7 +87,16 @@ public class Player2 : MonoBehaviour
             else if (hand2 == 1 && hand1 == 2)
             {
                 Debug.Log("èüÇø");
-                jan_S = jan_S + 1;
+                if(up == 0)
+                {
+                    jan_S = jan_S + 1;
+                }
+                else 
+                {
+                    jan_S = jan_S + 3;
+                    up = 0;
+                }
+                
             }
             else if (hand2 == 1 && hand1 == 3)
             {
@@ -108,12 +123,28 @@ public class Player2 : MonoBehaviour
             else if (hand2 == 2 && hand1 == 3)
             {
                 Debug.Log("èüÇø");
-                jan_S = jan_S + 1;
+                if (up == 0)
+                {
+                    jan_S = jan_S + 1;
+                }
+                else
+                {
+                    jan_S = jan_S + 3;
+                    up = 0;
+                }
             }
             else if (hand2 == 3 && hand1 == 1)
             {
                 Debug.Log("èüÇø");
-                jan_S = jan_S + 1;
+                if (up == 0)
+                {
+                    jan_S = jan_S + 1;
+                }
+                else
+                {
+                    jan_S = jan_S + 3;
+                    up = 0;
+                }
             }
             else if (hand2 == 3 && hand1 == 2)
             {
