@@ -29,7 +29,6 @@ public class Player2 : MonoBehaviour
     private GameObject tyoki;
 
 
-
     // UI画面のゲームオブジェクトを格納する変数
     // インスペクターウィンドウからゲームオブジェクトを設定する
     [SerializeField] GameObject logsView;
@@ -44,10 +43,15 @@ public class Player2 : MonoBehaviour
     public Vector3 posp2;
     public bool key = true;
     public int up = 0;
+    public int n = 0;
+
+    private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        jan_S = 0;
+        animator = GetComponent<Animator>();
     }
 
     public static int getscore2()
@@ -56,7 +60,7 @@ public class Player2 : MonoBehaviour
         return jan_S;
     }
 
-    void OnCollisionEnter(Collision collision)                                                                                                                                                                                                    
+    void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Random_hand"))
         {
@@ -78,7 +82,7 @@ public class Player2 : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player1"))
         {
-   
+
             int hand1 = Player1.hand1;
             if (hand2 == 1 && hand1 == 1)
             {
@@ -87,16 +91,16 @@ public class Player2 : MonoBehaviour
             else if (hand2 == 1 && hand1 == 2)
             {
                 Debug.Log("勝ち");
-                if(up == 0)
+                if (up == 0)
                 {
                     jan_S = jan_S + 1;
                 }
-                else 
+                else
                 {
                     jan_S = jan_S + 3;
                     up = 0;
                 }
-                
+
             }
             else if (hand2 == 1 && hand1 == 3)
             {
@@ -106,6 +110,8 @@ public class Player2 : MonoBehaviour
                 logsView.SetActive(isLogsView);
                 key = false;
                 Invoke("EnableInput", 2f);
+                hand2 = 0;
+                n = 0;
             }
             else if (hand2 == 2 && hand1 == 1)
             {
@@ -115,6 +121,8 @@ public class Player2 : MonoBehaviour
                 logsView.SetActive(isLogsView);
                 key = false;
                 Invoke("EnableInput", 2f);
+                hand2 = 0;
+                n= 0;
             }
             else if (hand2 == 2 && hand1 == 2)
             {
@@ -154,6 +162,8 @@ public class Player2 : MonoBehaviour
                 logsView.SetActive(isLogsView);
                 key = false;
                 Invoke("EnableInput", 2f);
+                hand2 = 0;
+                n = 0;
             }
             else if (hand2 == 3 && hand1 == 3)
             {
@@ -222,6 +232,16 @@ public class Player2 : MonoBehaviour
                 transform.position += speed * transform.forward * Time.deltaTime;
             }
 
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                animator.SetBool("walk", !animator.GetBool("walk"));
+            }
+            if (Input.GetKeyUp(KeyCode.UpArrow))
+            {
+                animator.SetBool("walk", !animator.GetBool("walk"));
+            }
+
+
             // Sキー（後方移動）
             if (Input.GetKey(KeyCode.DownArrow))
             {
@@ -239,6 +259,34 @@ public class Player2 : MonoBehaviour
             {
                 transform.position -= speed * transform.right * Time.deltaTime;
             }
+        }
+        var up_P2 = Input.GetAxis("up_P2");
+        var down_P2 = Input.GetAxis("down_P2");
+        var left_P2 = Input.GetAxis("left_P2");
+        if (n == 0)
+        {
+            if(up_P2 > 0)
+            {
+                hand2 = 1;
+                isLogsView = !isLogsView;
+                logsView.SetActive(isLogsView);
+                n = 1;
+            }
+            if(down_P2 < 0)
+            {
+                hand2 = 3;
+                isLogsView = !isLogsView;
+                logsView.SetActive(isLogsView);
+                n = 1;
+            }
+            if (left_P2 < 0) 
+            {
+                hand2 = 2;
+                isLogsView = !isLogsView;
+                logsView.SetActive(isLogsView);
+                n = 1;
+            }
+
         }
 
     }
@@ -264,7 +312,7 @@ public class Player2 : MonoBehaviour
         logsView.SetActive(isLogsView);
     }
 
-    public void Statas() 
+    public void Statas()
     {
         speed = 3.0f;
     }

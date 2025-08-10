@@ -22,6 +22,6 @@ public class P2score_Game : MonoBehaviour
         Text score_text = score_object.GetComponent<Text>();
         // テキストの表示を入れ替える
         score_num = jajan;
-        score_text.text = "Score:" + score_num; ;
+        score_text.text = "Score:" + score_num;
     }
 }

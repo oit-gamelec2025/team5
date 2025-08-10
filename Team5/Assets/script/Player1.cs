@@ -35,17 +35,22 @@ public class Player1 : MonoBehaviour
     public Vector3 posp1;
     public bool key = true;
     public int up = 0;
+    public int n = 0;
+
+    private Animator animator;
 
     public static int getscore1()
     {
 
         return jan_S;
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
-
+        jan_S = 0;
+        animator = GetComponent<Animator>();
     }
 
 
@@ -53,12 +58,12 @@ public class Player1 : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Random_hand"))
         {
-            hand1 = Random.Range(1,4);
+            hand1 = Random.Range(1, 4);
             Destroy(collision.gameObject);
 
         }
 
-        if(collision.gameObject.CompareTag("item2"))
+        if (collision.gameObject.CompareTag("item2"))
         {
             Destroy(collision.gameObject);
             up = 1;
@@ -67,7 +72,7 @@ public class Player1 : MonoBehaviour
         int hand2 = Player2.hand2;
         if (collision.gameObject.CompareTag("Player2"))
         {
-            
+
             if (hand2 == 1 && hand1 == 1)
             {
                 Debug.Log("あいこ");
@@ -80,6 +85,8 @@ public class Player1 : MonoBehaviour
                 logsView.SetActive(isLogsView);
                 key = false;
                 Invoke("EnableInput", 2f);
+                hand1 = 0;
+                n = 0;
 
             }
             else if (hand2 == 1 && hand1 == 3)
@@ -89,7 +96,8 @@ public class Player1 : MonoBehaviour
                 {
                     jan_S = jan_S + 2;
                     up = 0;
-                }else
+                }
+                else
                 {
                     jan_S = jan_S + 1;
                 }
@@ -117,8 +125,10 @@ public class Player1 : MonoBehaviour
                 gameObject.transform.position = new Vector3(posp1.x, posp1.y, posp1.z);
                 isLogsView = !isLogsView;
                 logsView.SetActive(isLogsView);
-                key = false; 
+                key = false;
                 Invoke("EnableInput", 2f);
+                hand1 = 0;
+                n = 0;
             }
             else if (hand2 == 3 && hand1 == 1)
             {
@@ -128,6 +138,8 @@ public class Player1 : MonoBehaviour
                 logsView.SetActive(isLogsView);
                 key = false;
                 Invoke("EnableInput", 2f);
+                hand1 = 0;
+                n = 0;
             }
             else if (hand2 == 3 && hand1 == 2)
             {
@@ -181,12 +193,22 @@ public class Player1 : MonoBehaviour
 
         if (key == true)
         {
+
             // Wキー（前方移動）
             if (Input.GetKey(KeyCode.W))
             {
+
                 transform.position += speed * transform.forward * Time.deltaTime;
             }
 
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                animator.SetBool("walk", !animator.GetBool("walk"));
+            }
+            if (Input.GetKeyUp(KeyCode.W))
+            {
+                animator.SetBool("walk1", false);
+            }
             // Sキー（後方移動）
             if (Input.GetKey(KeyCode.S))
             {
@@ -222,6 +244,35 @@ public class Player1 : MonoBehaviour
             hand1 = 3;
             //パー
         }
+        var up_P1 = Input.GetAxis("up_P1");
+        var right_P1 = Input.GetAxis("right_P1");
+        var left_P1 = Input.GetAxis("left_P1");
+        if (n == 0)
+        {
+            if (up_P1 > 0)
+            {
+                hand1 = 1;
+                isLogsView = !isLogsView;
+                logsView.SetActive(isLogsView);
+                n = 1;
+            }
+            if (right_P1 > 0)
+            {
+                hand1 = 3;
+                isLogsView = !isLogsView;
+                logsView.SetActive(isLogsView);
+                n = 1;
+            }
+            if (left_P1 == -1)
+            {
+                hand1 = 2;
+                isLogsView = !isLogsView;
+                logsView.SetActive(isLogsView);
+                n = 1;
+            }
+
+
+        }
 
 
 
@@ -234,7 +285,7 @@ public class Player1 : MonoBehaviour
         hand1 = 1;
         isLogsView = !isLogsView;
         logsView.SetActive(isLogsView);
-       
+
     }
 
     public void T_Button()
@@ -242,7 +293,7 @@ public class Player1 : MonoBehaviour
         hand1 = 2;
         isLogsView = !isLogsView;
         logsView.SetActive(isLogsView);
-        
+
     }
 
     public void P_Button()
@@ -257,3 +308,4 @@ public class Player1 : MonoBehaviour
         key = true;
     }
 }
+

@@ -15,12 +15,16 @@ public class result_M : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetButton("Fire1"))
+        {
+            SceneManager.LoadScene("Title", LoadSceneMode.Single);
+
+        }
     }
 
     public void onClickStartButton()
     {
         SceneManager.LoadScene("Title", LoadSceneMode.Single);
     }
-
+    
 }
