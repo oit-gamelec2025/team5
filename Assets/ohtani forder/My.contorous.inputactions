@@ -1,0 +1,76 @@
+{
+    "name": "My.contorous",
+    "maps": [
+        {
+            "name": "player 1",
+            "id": "9b041e38-1b3b-41cd-8f4b-eaa75bd3e4a3",
+            "actions": [
+                {
+                    "name": "jump",
+                    "type": "Button",
+                    "id": "0964cf1f-4b82-4983-b994-d4bce11bc04f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "run",
+                    "type": "Value",
+                    "id": "e0e916b7-51a6-49aa-9d21-794fd51e0ac1",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b789435a-81c5-4b8a-bc5e-8b5c7f9409e1",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9e660ed0-d66d-4b2f-8d7f-66265b2d2927",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ab9292cf-61fe-49c5-a90a-51b61817c8b9",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a2d0694c-794e-47fa-b254-ddbcafaa6033",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
