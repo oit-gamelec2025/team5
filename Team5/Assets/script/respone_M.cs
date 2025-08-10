@@ -27,9 +27,9 @@ public class respone_M : MonoBehaviour
     [Tooltip("Random_hand")]
     private GameObject RH3Prefab;
 
-    [SerializeField]
+    /*[SerializeField]
     [Tooltip("Random_hand")]
-    private GameObject RH4Prefab;
+    private GameObject RH4Prefab;*/
 
     [SerializeField]
     [Tooltip("Random_hand")]
@@ -82,12 +82,12 @@ public class respone_M : MonoBehaviour
             newPlayerObj3.name = RH3Prefab.name;
         }
 
-        GameObject playerObj4 = GameObject.Find(RH4Prefab.name);
+        /*GameObject playerObj4 = GameObject.Find(RH4Prefab.name);
         if (playerObj4 == null)
         {
             GameObject newPlayerObj4 = Instantiate(RH4Prefab, spawnPosition6, Quaternion.identity);
             newPlayerObj4.name = RH4Prefab.name;
-        }
+        }*/
 
 
         GameObject Item1 = GameObject.Find(Item1Prefab.name);
