@@ -9,6 +9,8 @@ public class Player2 : MonoBehaviour
     [SerializeField] private Vector3 offset = new Vector3(0, 3, 0); // プレイヤーからの相対位置
     [SerializeField] private Transform followerpa;
     [SerializeField] private Transform followertyoki;
+    [SerializeField] private Transform cameraTransform; // メインカメラのTransform
+
 
     public Vector3 paPosition;
     public Vector3 guPosition;
@@ -51,7 +53,7 @@ public class Player2 : MonoBehaviour
     void Start()
     {
         jan_S = 0;
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
     }
 
     public static int getscore2()
@@ -177,6 +179,16 @@ public class Player2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // カメラの向きから水平回転だけ取得
+        Vector3 camForward = cameraTransform.forward;
+        camForward.y = 0; // 上下方向は無視
+        camForward.Normalize();
+
+        // プレイヤーの向きをカメラと合わせる
+        if (camForward.sqrMagnitude > 0.001f)
+        {
+            transform.rotation = Quaternion.LookRotation(camForward);
+        }
         player2Position = player2.transform.position;
 
         paPosition = player2Position;

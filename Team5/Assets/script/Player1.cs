@@ -10,6 +10,8 @@ public class Player1 : MonoBehaviour
     [SerializeField] private Transform followerpa;
     [SerializeField] private Transform followertyoki;
 
+    [SerializeField] private Transform cameraTransform; // メインカメラのTransform
+
     [SerializeField]
     [Tooltip("pa-")]
     private GameObject pa;
@@ -37,7 +39,6 @@ public class Player1 : MonoBehaviour
     public int up = 0;
     public int n = 0;
 
-    private Animator animator;
 
     public static int getscore1()
     {
@@ -50,7 +51,6 @@ public class Player1 : MonoBehaviour
     void Start()
     {
         jan_S = 0;
-        animator = GetComponent<Animator>();
     }
 
 
@@ -167,6 +167,16 @@ public class Player1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector3 camForward = cameraTransform.forward;
+        camForward.y = 0; // 上下方向は無視
+        camForward.Normalize();
+
+        // プレイヤーの向きをカメラと合わせる
+        if (camForward.sqrMagnitude > 0.001f)
+        {
+            transform.rotation = Quaternion.LookRotation(camForward);
+        }
+
         followergu.position = player.position + offset;
         followerpa.position = player.position + offset;
         followertyoki.position = player.position + offset;
@@ -203,11 +213,11 @@ public class Player1 : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.W))
             {
-                animator.SetBool("walk", !animator.GetBool("walk"));
+                //animator.SetBool("walk", !animator.GetBool("walk"));
             }
             if (Input.GetKeyUp(KeyCode.W))
             {
-                animator.SetBool("walk1", false);
+                //animator.SetBool("walk1", false);
             }
             // Sキー（後方移動）
             if (Input.GetKey(KeyCode.S))

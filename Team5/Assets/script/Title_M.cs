@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
-public class Title_Manage : MonoBehaviour
+public class Title_M : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -22,16 +21,15 @@ public class Title_Manage : MonoBehaviour
         if (Input.GetButton("Fire2"))
         {
 #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;//ゲームプレイ終了
+             UnityEditor.EditorApplication.isPlaying = false;//?Q?[???v???C?I??
 #else
-            Application.Quit();//ゲームプレイ終了
+            Application.Quit();//?Q?[???v???C?I??
 #endif
         }
     }
     public void onClickStartButton()
     {
         SceneManager.LoadScene("Main", LoadSceneMode.Single);
-    }
-    
 
+    }
 }
