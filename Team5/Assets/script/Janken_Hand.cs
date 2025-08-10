@@ -5,14 +5,17 @@ using UnityEngine.UI;
 
 public class Janken_Hand : MonoBehaviour
 {
-    public GameObject J1_object = null;
-    public GameObject J2_object = null;
+
+    public GameObject J1_object;
+    public GameObject J2_object;
+
+    public GameObject hand1;
+
+    
+
+
 
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -21,8 +24,8 @@ public class Janken_Hand : MonoBehaviour
         Text score_text1 = J1_object.GetComponent<Text>();
         Text score_text2 = J2_object.GetComponent<Text>();
 
-        int hand1 = Player1.hand1;
-        int hand2 = Player2.hand2;
+        int hand1 =Player1.hand1;
+        int hand2 =Player2.hand2;
 
         if (hand1 == 1)
         {

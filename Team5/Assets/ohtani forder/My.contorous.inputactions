@@ -28,7 +28,7 @@
                 {
                     "name": "",
                     "id": "b789435a-81c5-4b8a-bc5e-8b5c7f9409e1",
-                    "path": "<Keyboard>/space",
+                    "path": "<XInputController>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -61,7 +61,57 @@
                 {
                     "name": "",
                     "id": "a2d0694c-794e-47fa-b254-ddbcafaa6033",
+                    "path": "<XInputController>/leftStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7d10dce2-8f8d-4206-8a2c-527bdd854f8a",
                     "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "player2",
+            "id": "bcb0be23-83fd-4d5e-819a-7c64b1e8026c",
+            "actions": [
+                {
+                    "name": "run",
+                    "type": "Button",
+                    "id": "0cecf33c-a545-4982-b3a4-c3556111e625",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "2af8b918-660e-4946-90ed-b0e2dc65031a",
+                    "path": "<XInputController>/leftStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c9241cd8-2b81-4f1c-bd2f-55daf5c9def8",
+                    "path": "",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

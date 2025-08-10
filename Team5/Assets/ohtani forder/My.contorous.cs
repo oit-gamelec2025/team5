@@ -50,7 +50,7 @@ public partial class @MyControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""b789435a-81c5-4b8a-bc5e-8b5c7f9409e1"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<XInputController>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -83,7 +83,57 @@ public partial class @MyControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""a2d0694c-794e-47fa-b254-ddbcafaa6033"",
+                    ""path"": ""<XInputController>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""run"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7d10dce2-8f8d-4206-8a2c-527bdd854f8a"",
                     ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""run"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""player2"",
+            ""id"": ""bcb0be23-83fd-4d5e-819a-7c64b1e8026c"",
+            ""actions"": [
+                {
+                    ""name"": ""run"",
+                    ""type"": ""Button"",
+                    ""id"": ""0cecf33c-a545-4982-b3a4-c3556111e625"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""2af8b918-660e-4946-90ed-b0e2dc65031a"",
+                    ""path"": ""<XInputController>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""run"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c9241cd8-2b81-4f1c-bd2f-55daf5c9def8"",
+                    ""path"": """",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -100,6 +150,9 @@ public partial class @MyControls: IInputActionCollection2, IDisposable
         m_player1 = asset.FindActionMap("player 1", throwIfNotFound: true);
         m_player1_jump = m_player1.FindAction("jump", throwIfNotFound: true);
         m_player1_run = m_player1.FindAction("run", throwIfNotFound: true);
+        // player2
+        m_player2 = asset.FindActionMap("player2", throwIfNotFound: true);
+        m_player2_run = m_player2.FindAction("run", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -211,9 +264,59 @@ public partial class @MyControls: IInputActionCollection2, IDisposable
         }
     }
     public Player1Actions @player1 => new Player1Actions(this);
+
+    // player2
+    private readonly InputActionMap m_player2;
+    private List<IPlayer2Actions> m_Player2ActionsCallbackInterfaces = new List<IPlayer2Actions>();
+    private readonly InputAction m_player2_run;
+    public struct Player2Actions
+    {
+        private @MyControls m_Wrapper;
+        public Player2Actions(@MyControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @run => m_Wrapper.m_player2_run;
+        public InputActionMap Get() { return m_Wrapper.m_player2; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(Player2Actions set) { return set.Get(); }
+        public void AddCallbacks(IPlayer2Actions instance)
+        {
+            if (instance == null || m_Wrapper.m_Player2ActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_Player2ActionsCallbackInterfaces.Add(instance);
+            @run.started += instance.OnRun;
+            @run.performed += instance.OnRun;
+            @run.canceled += instance.OnRun;
+        }
+
+        private void UnregisterCallbacks(IPlayer2Actions instance)
+        {
+            @run.started -= instance.OnRun;
+            @run.performed -= instance.OnRun;
+            @run.canceled -= instance.OnRun;
+        }
+
+        public void RemoveCallbacks(IPlayer2Actions instance)
+        {
+            if (m_Wrapper.m_Player2ActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IPlayer2Actions instance)
+        {
+            foreach (var item in m_Wrapper.m_Player2ActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_Player2ActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public Player2Actions @player2 => new Player2Actions(this);
     public interface IPlayer1Actions
     {
         void OnJump(InputAction.CallbackContext context);
+        void OnRun(InputAction.CallbackContext context);
+    }
+    public interface IPlayer2Actions
+    {
         void OnRun(InputAction.CallbackContext context);
     }
 }
