@@ -12,10 +12,7 @@ public class Player2 : MonoBehaviour
     [SerializeField] private Transform cameraTransform; // ƒƒCƒ“ƒJƒƒ‰‚ÌTransform
 
 
-    public Vector3 paPosition;
-    public Vector3 guPosition;
-    public Vector3 tyok1Position;
-    public Vector3 player2Position;
+
     [SerializeField]
     [Tooltip("Player2")]
     private GameObject player2;
@@ -39,7 +36,7 @@ public class Player2 : MonoBehaviour
     public static bool isLogsView = true;
 
 
-    public static int jan_S = 0;
+    public static int jan_S2 = 0;
     public static int hand2;
     float speed = 3.0f;
     public Vector3 posp2;
@@ -52,14 +49,14 @@ public class Player2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        jan_S = 0;
+        jan_S2 = 0;
         //animator = GetComponent<Animator>();
     }
 
     public static int getscore2()
     {
 
-        return jan_S;
+        return jan_S2;
     }
 
     void OnCollisionEnter(Collision collision)
@@ -90,20 +87,6 @@ public class Player2 : MonoBehaviour
             {
                 Debug.Log("‚ ‚¢‚±");
             }
-            else if (hand2 == 1 && hand1 == 2)
-            {
-                Debug.Log("Ÿ‚¿");
-                if (up == 0)
-                {
-                    jan_S = jan_S + 1;
-                }
-                else
-                {
-                    jan_S = jan_S + 3;
-                    up = 0;
-                }
-
-            }
             else if (hand2 == 1 && hand1 == 3)
             {
                 Debug.Log("•‰‚¯");
@@ -124,37 +107,11 @@ public class Player2 : MonoBehaviour
                 key = false;
                 Invoke("EnableInput", 2f);
                 hand2 = 0;
-                n= 0;
+                n = 0;
             }
             else if (hand2 == 2 && hand1 == 2)
             {
                 Debug.Log("‚ ‚¢‚±");
-            }
-            else if (hand2 == 2 && hand1 == 3)
-            {
-                Debug.Log("Ÿ‚¿");
-                if (up == 0)
-                {
-                    jan_S = jan_S + 1;
-                }
-                else
-                {
-                    jan_S = jan_S + 3;
-                    up = 0;
-                }
-            }
-            else if (hand2 == 3 && hand1 == 1)
-            {
-                Debug.Log("Ÿ‚¿");
-                if (up == 0)
-                {
-                    jan_S = jan_S + 1;
-                }
-                else
-                {
-                    jan_S = jan_S + 3;
-                    up = 0;
-                }
             }
             else if (hand2 == 3 && hand1 == 2)
             {
@@ -171,7 +128,21 @@ public class Player2 : MonoBehaviour
             {
                 Debug.Log("‚ ‚¢‚±");
             }
-
+            else if (hand2 != 2 && hand2 != 3 && hand1 != 1 && hand1 != 3)
+            {
+                Debug.Log("Ÿ‚¿");
+                jan_S2 = jan_S2 + 5;
+            }
+            else if (hand2 != 1 && hand2 != 3 && hand1 != 1 && hand1 != 2)
+            {
+                Debug.Log("Ÿ‚¿");
+                jan_S2 = jan_S2 + 5;
+            }
+            else if (hand2 != 2 && hand2 != 1 && hand1 != 2 && hand1 != 3)
+            {
+                Debug.Log("Ÿ‚¿");
+                jan_S2 = jan_S2 + 5;
+            }
         }
 
     }
@@ -179,6 +150,7 @@ public class Player2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         // ƒJƒƒ‰‚ÌŒü‚«‚©‚ç…•½‰ñ“]‚¾‚¯æ“¾
         Vector3 camForward = cameraTransform.forward;
         camForward.y = 0; // ã‰º•ûŒü‚Í–³‹
@@ -189,11 +161,7 @@ public class Player2 : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(camForward);
         }
-        player2Position = player2.transform.position;
-
-        paPosition = player2Position;
-        guPosition = player2Position;
-        tyok1Position = player2Position;
+  
 
         followergu.position = player.position + offset;
         followerpa.position = player.position + offset;

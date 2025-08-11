@@ -159,7 +159,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -246,7 +246,6 @@ GameObject:
   - component: {fileID: 32921397}
   - component: {fileID: 32921396}
   - component: {fileID: 32921395}
-  - component: {fileID: 32921399}
   m_Layer: 5
   m_Name: gu
   m_TagString: Untagged
@@ -317,7 +316,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 32921399}
+      - m_Target: {fileID: 32921396}
         m_TargetAssemblyTypeName: Player1, Assembly-CSharp
         m_MethodName: G_Button
         m_Mode: 1
@@ -341,15 +340,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 006a1a6bba8fb374b994ac48798b8f18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  followergu: {fileID: 0}
+  player: {fileID: 1712627200}
+  followergu: {fileID: 1712627200}
   offset: {x: 0, y: 3, z: 0}
-  followerpa: {fileID: 0}
-  followertyoki: {fileID: 0}
-  cameraTransform: {fileID: 0}
-  pa: {fileID: 0}
-  gu: {fileID: 0}
-  tyoki: {fileID: 0}
+  followerpa: {fileID: 1712627200}
+  followertyoki: {fileID: 1712627200}
+  cameraTransform: {fileID: 1712627200}
+  pa: {fileID: 1712627199}
+  gu: {fileID: 1712627199}
+  tyoki: {fileID: 1712627199}
   logsView: {fileID: 645707631}
   posp1: {x: 0, y: 0, z: 0}
   key: 1
@@ -393,32 +392,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 32921393}
   m_CullTransparentMesh: 1
---- !u!114 &32921399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 32921393}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 006a1a6bba8fb374b994ac48798b8f18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  followergu: {fileID: 0}
-  offset: {x: 0, y: 3, z: 0}
-  followerpa: {fileID: 0}
-  followertyoki: {fileID: 0}
-  cameraTransform: {fileID: 0}
-  pa: {fileID: 0}
-  gu: {fileID: 0}
-  tyoki: {fileID: 0}
-  logsView: {fileID: 645707631}
-  posp1: {x: 0, y: 0, z: 0}
-  key: 1
-  up: 0
-  n: 0
 --- !u!4 &46618782 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8877348711938274137, guid: 44f1f71abaf5d924c92937179a0cd3e0, type: 3}
@@ -752,10 +725,6 @@ MonoBehaviour:
   followerpa: {fileID: 1712627200}
   followertyoki: {fileID: 1712627200}
   cameraTransform: {fileID: 1712627200}
-  paPosition: {x: 0, y: 0, z: 0}
-  guPosition: {x: 0, y: 0, z: 0}
-  tyok1Position: {x: 0, y: 0, z: 0}
-  player2Position: {x: 0, y: 0, z: 0}
   player2: {fileID: 1712627199}
   pa: {fileID: 1712627199}
   gu: {fileID: 1712627199}
@@ -954,7 +923,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -2006,7 +1975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1b307feb317f464591ec26f5bbf6baf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countdownMinutes: 3
+  countdownMinutes: 1
 --- !u!114 &600532654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2822,16 +2791,12 @@ MonoBehaviour:
   followerpa: {fileID: 1589529335}
   followertyoki: {fileID: 260702886}
   cameraTransform: {fileID: 2044909263}
-  paPosition: {x: 0, y: 0, z: 0}
-  guPosition: {x: 0, y: 0, z: 0}
-  tyok1Position: {x: 0, y: 0, z: 0}
-  player2Position: {x: 0, y: 0, z: 0}
   player2: {fileID: 702199043}
-  pa: {fileID: 2014645686}
+  pa: {fileID: 1589529331}
   gu: {fileID: 5557778}
   tyoki: {fileID: 260702882}
   logsView: {fileID: 888863383}
-  posp2: {x: 7, y: 1, z: -3}
+  posp2: {x: 0, y: 0, z: 0}
   key: 1
   up: 0
   n: 0
@@ -3285,8 +3250,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2669336, y: 0.000000009207489, z: -0.0000000025503266, w: 0.96371496}
-  m_LocalPosition: {x: -9.016483, y: 4.7282276, z: 2.987729}
+  m_LocalRotation: {x: 0.20106588, y: 0.000000016854983, z: -0.0000000034596153, w: 0.9795777}
+  m_LocalPosition: {x: -9.016483, y: 4.7282276, z: 0.9877291}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4178,7 +4143,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -4311,8 +4276,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1399466649}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2669336, y: 0.000000009207489, z: -0.0000000025503266, w: 0.96371496}
-  m_LocalPosition: {x: -9.016483, y: 4.7282276, z: 2.987729}
+  m_LocalRotation: {x: 0.20106588, y: 0.000000016854983, z: -0.0000000034596153, w: 0.9795777}
+  m_LocalPosition: {x: -9.016483, y: 4.7282276, z: 0.9877291}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4441,52 +4406,6 @@ CapsuleCollider:
   m_Height: 0.7555756
   m_Direction: 1
   m_Center: {x: 0.04947572, y: 0.3469552, z: -0.02593092}
---- !u!1 &1436717214
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1436717216}
-  - component: {fileID: 1436717215}
-  m_Layer: 0
-  m_Name: Score_player2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1436717215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1436717214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84d349281c011b64b9ca96bd0f9cfaa6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  score_num: 0
-  score_object: {fileID: 2091537704}
---- !u!4 &1436717216
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1436717214}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 390.63123, y: 111.6154, z: 67.24377}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1494379518
 GameObject:
   m_ObjectHideFlags: 3
@@ -4573,7 +4492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 3, z: -5}
+  m_FollowOffset: {x: 0, y: 3, z: -7}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -4849,7 +4768,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -5032,6 +4951,52 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7449293878029006145, guid: 36ac2f406c9eed54ab5c8a7963de6f3f, type: 3}
   m_PrefabInstance: {fileID: 1865157962}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1617707165
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1617707167}
+  - component: {fileID: 1617707166}
+  m_Layer: 0
+  m_Name: Score_player2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1617707166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617707165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84d349281c011b64b9ca96bd0f9cfaa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score_num: 0
+  score_object: {fileID: 2091537704}
+--- !u!4 &1617707167
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617707165}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 390.63123, y: 111.6154, z: 67.24377}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1652919137 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 31126740612787459, guid: e3edaa64ac6ee7e45bed08a896227c0f, type: 3}
@@ -5094,10 +5059,6 @@ MonoBehaviour:
   followerpa: {fileID: 1712627200}
   followertyoki: {fileID: 1712627200}
   cameraTransform: {fileID: 1712627200}
-  paPosition: {x: 0, y: 0, z: 0}
-  guPosition: {x: 0, y: 0, z: 0}
-  tyok1Position: {x: 0, y: 0, z: 0}
-  player2Position: {x: 0, y: 0, z: 0}
   player2: {fileID: 1712627199}
   pa: {fileID: 1712627199}
   gu: {fileID: 1712627199}
@@ -5283,7 +5244,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -6235,10 +6196,6 @@ MonoBehaviour:
   followerpa: {fileID: 1712627200}
   followertyoki: {fileID: 1712627200}
   cameraTransform: {fileID: 1712627200}
-  paPosition: {x: 0, y: 0, z: 0}
-  guPosition: {x: 0, y: 0, z: 0}
-  tyok1Position: {x: 0, y: 0, z: 0}
-  player2Position: {x: 0, y: 0, z: 0}
   player2: {fileID: 1712627199}
   pa: {fileID: 1712627199}
   gu: {fileID: 1712627199}
@@ -6420,7 +6377,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -7222,7 +7179,7 @@ SceneRoots:
   - {fileID: 230157579}
   - {fileID: 588971863}
   - {fileID: 1660790263}
-  - {fileID: 1436717216}
+  - {fileID: 1617707167}
   - {fileID: 700120391}
   - {fileID: 1907170064}
   - {fileID: 1085398117}

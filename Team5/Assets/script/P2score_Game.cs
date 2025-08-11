@@ -16,7 +16,7 @@ public class P2score_Game : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int jajan = Player2.jan_S;
+        int jajan = Player2.jan_S2;
 
         // オブジェクトからTextコンポーネントを取得
         Text score_text = score_object.GetComponent<Text>();

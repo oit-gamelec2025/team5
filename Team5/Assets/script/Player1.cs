@@ -56,6 +56,8 @@ public class Player1 : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+
+
         if (collision.gameObject.CompareTag("Random_hand"))
         {
             hand1 = Random.Range(1, 4);
@@ -171,6 +173,7 @@ public class Player1 : MonoBehaviour
         camForward.y = 0; // 上下方向は無視
         camForward.Normalize();
 
+
         // プレイヤーの向きをカメラと合わせる
         if (camForward.sqrMagnitude > 0.001f)
         {
@@ -254,12 +257,12 @@ public class Player1 : MonoBehaviour
             hand1 = 3;
             //パー
         }
-        var up_P1 = Input.GetAxis("up_P1");
+        var up_P1 = Input.GetAxis("up_P1.2");
         var right_P1 = Input.GetAxis("right_P1");
         var left_P1 = Input.GetAxis("left_P1");
         if (n == 0)
         {
-            if (up_P1 > 0)
+            if (up_P1 != 0)
             {
                 hand1 = 1;
                 isLogsView = !isLogsView;
