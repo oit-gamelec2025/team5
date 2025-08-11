@@ -44,6 +44,7 @@ public class Player1 : MonoBehaviour
     {
 
         return jan_S;
+        hand1 = 0;
 
     }
 
@@ -84,7 +85,7 @@ public class Player1 : MonoBehaviour
                 Debug.Log("•‰‚¯");
                 gameObject.transform.position = new Vector3(posp1.x, posp1.y, posp1.z);
                 isLogsView = !isLogsView;
-                logsView.SetActive(isLogsView);
+                logsView.SetActive(true);
                 key = false;
                 Invoke("EnableInput", 2f);
                 hand1 = 0;
@@ -126,7 +127,7 @@ public class Player1 : MonoBehaviour
                 Debug.Log("•‰‚¯");
                 gameObject.transform.position = new Vector3(posp1.x, posp1.y, posp1.z);
                 isLogsView = !isLogsView;
-                logsView.SetActive(isLogsView);
+                logsView.SetActive(true);
                 key = false;
                 Invoke("EnableInput", 2f);
                 hand1 = 0;
@@ -137,7 +138,7 @@ public class Player1 : MonoBehaviour
                 Debug.Log("•‰‚¯");
                 gameObject.transform.position = new Vector3(posp1.x, posp1.y, posp1.z);
                 isLogsView = !isLogsView;
-                logsView.SetActive(isLogsView);
+                logsView.SetActive(true);
                 key = false;
                 Invoke("EnableInput", 2f);
                 hand1 = 0;
@@ -200,6 +201,12 @@ public class Player1 : MonoBehaviour
         else if (hand1 == 3)
         {
             pa.SetActive(true);
+            gu.SetActive(false);
+            tyoki.SetActive(false);
+        }
+        else if (hand1 == 0)
+        {
+            pa.SetActive(false);
             gu.SetActive(false);
             tyoki.SetActive(false);
         }
@@ -266,21 +273,21 @@ public class Player1 : MonoBehaviour
             {
                 hand1 = 1;
                 isLogsView = !isLogsView;
-                logsView.SetActive(isLogsView);
+                logsView.SetActive(false);
                 n = 1;
             }
             if (right_P1 > 0)
             {
                 hand1 = 3;
                 isLogsView = !isLogsView;
-                logsView.SetActive(isLogsView);
+                logsView.SetActive(false);
                 n = 1;
             }
             if (left_P1 == -1)
             {
                 hand1 = 2;
                 isLogsView = !isLogsView;
-                logsView.SetActive(isLogsView);
+                logsView.SetActive(false);
                 n = 1;
             }
 

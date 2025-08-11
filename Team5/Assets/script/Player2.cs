@@ -51,6 +51,7 @@ public class Player2 : MonoBehaviour
     {
         jan_S2 = 0;
         //animator = GetComponent<Animator>();
+        hand2 = 0;
     }
 
     public static int getscore2()
@@ -91,8 +92,8 @@ public class Player2 : MonoBehaviour
             {
                 Debug.Log("•‰‚¯");
                 gameObject.transform.position = new Vector3(posp2.x, posp2.y, posp2.z);
-                isLogsView = !isLogsView;
-                logsView.SetActive(isLogsView);
+               
+                logsView.SetActive(true);
                 key = false;
                 Invoke("EnableInput", 2f);
                 hand2 = 0;
@@ -102,8 +103,8 @@ public class Player2 : MonoBehaviour
             {
                 Debug.Log("•‰‚¯");
                 gameObject.transform.position = new Vector3(posp2.x, posp2.y, posp2.z);
-                isLogsView = !isLogsView;
-                logsView.SetActive(isLogsView);
+             
+                logsView.SetActive(true);
                 key = false;
                 Invoke("EnableInput", 2f);
                 hand2 = 0;
@@ -117,8 +118,8 @@ public class Player2 : MonoBehaviour
             {
                 Debug.Log("•‰‚¯");
                 gameObject.transform.position = new Vector3(posp2.x, posp2.y, posp2.z);
-                isLogsView = !isLogsView;
-                logsView.SetActive(isLogsView);
+           
+                logsView.SetActive(true);
                 key = false;
                 Invoke("EnableInput", 2f);
                 hand2 = 0;
@@ -131,17 +132,17 @@ public class Player2 : MonoBehaviour
             else if (hand2 != 2 && hand2 != 3 && hand1 != 1 && hand1 != 3)
             {
                 Debug.Log("Ÿ‚¿");
-                jan_S2 = jan_S2 + 5;
+                jan_S2 = jan_S2 + 3;
             }
             else if (hand2 != 1 && hand2 != 3 && hand1 != 1 && hand1 != 2)
             {
                 Debug.Log("Ÿ‚¿");
-                jan_S2 = jan_S2 + 5;
+                jan_S2 = jan_S2 + 3;
             }
             else if (hand2 != 2 && hand2 != 1 && hand1 != 2 && hand1 != 3)
             {
                 Debug.Log("Ÿ‚¿");
-                jan_S2 = jan_S2 + 5;
+                jan_S2 = jan_S2 + 3;
             }
         }
 
@@ -182,6 +183,12 @@ public class Player2 : MonoBehaviour
         else if (hand2 == 3)
         {
             pa.SetActive(true);
+            gu.SetActive(false);
+            tyoki.SetActive(false);
+        }
+        else if (hand2 == 0)
+        {
+            pa.SetActive(false);
             gu.SetActive(false);
             tyoki.SetActive(false);
         }
@@ -240,30 +247,30 @@ public class Player2 : MonoBehaviour
                 transform.position -= speed * transform.right * Time.deltaTime;
             }
         }
-        var up_P2 = Input.GetAxis("up_P2");
-        var down_P2 = Input.GetAxis("down_P2");
-        var left_P2 = Input.GetAxis("left_P2");
+        var up_P2 = Input.GetAxis("up_P2.2");
+        var down_P2 = Input.GetAxis("down_P2.2");
+        var left_P2 = Input.GetAxis("left_P2.2");
         if (n == 0)
         {
             if(up_P2 > 0)
             {
                 hand2 = 1;
                 isLogsView = !isLogsView;
-                logsView.SetActive(isLogsView);
+                logsView.SetActive(false);
                 n = 1;
             }
             if(down_P2 < 0)
             {
                 hand2 = 3;
                 isLogsView = !isLogsView;
-                logsView.SetActive(isLogsView);
+                logsView.SetActive(false);
                 n = 1;
             }
             if (left_P2 < 0) 
             {
                 hand2 = 2;
                 isLogsView = !isLogsView;
-                logsView.SetActive(isLogsView);
+                logsView.SetActive(false);
                 n = 1;
             }
 

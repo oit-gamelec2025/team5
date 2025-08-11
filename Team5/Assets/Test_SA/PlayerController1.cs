@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerInput))]
-public class PlayerController : MonoBehaviour
+public class PlayerController1 : MonoBehaviour
 {
     Vector2 move;
     Vector2 look;
@@ -52,5 +52,22 @@ public class PlayerController : MonoBehaviour
         if (pi.currentActionMap == null || pi.currentActionMap.name != "Player")
             pi.SwitchCurrentActionMap("Player");
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Item1"))
+        {
+            Destroy(collision.gameObject);
+            moveSpeed = 8.0f;
+            Invoke("Statas", 10);
+        }
+
+    }
+    public void Statas()
+    {
+        moveSpeed = 2.0f;
+    }
+
+
 
 }
