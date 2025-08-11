@@ -133,16 +133,31 @@ public class Player2 : MonoBehaviour
             {
                 Debug.Log("Ÿ‚¿");
                 jan_S2 = jan_S2 + 3;
+                if(up == 1)
+                {
+                    jan_S2 = jan_S2 + 2;
+                    up = 0;
+                }
             }
             else if (hand2 != 1 && hand2 != 3 && hand1 != 1 && hand1 != 2)
             {
                 Debug.Log("Ÿ‚¿");
                 jan_S2 = jan_S2 + 3;
+                if (up == 1)
+                {
+                    jan_S2 = jan_S2 + 2;
+                    up = 0;
+                }
             }
             else if (hand2 != 2 && hand2 != 1 && hand1 != 2 && hand1 != 3)
             {
                 Debug.Log("Ÿ‚¿");
                 jan_S2 = jan_S2 + 3;
+                if (up == 1)
+                {
+                    jan_S2 = jan_S2 + 2;
+                    up = 0;
+                }
             }
         }
 

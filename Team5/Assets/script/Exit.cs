@@ -18,10 +18,7 @@ public class Exst : MonoBehaviour
 
     public void onClickExitButton()
     {
-#if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;//ゲームプレイ終了
-#else
+
         Application.Quit();//ゲームプレイ終了
-#endif
     }
 }

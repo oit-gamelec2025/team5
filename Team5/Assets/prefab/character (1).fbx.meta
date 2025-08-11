@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Knight_MAT2
-    second: {fileID: 2100000, guid: 8a7f14e0b951afc44839b7f02bb0d836, type: 2}
+    second: {fileID: 2100000, guid: 79f00cd8fe875534b891f5ebaf57130f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
